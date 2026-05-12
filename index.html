@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMS — Sulekh Convent Public School</title>
+  <link rel="stylesheet" href="cms.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════════ -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <div class="login-logo">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+        <circle cx="25" cy="25" r="23" fill="#1a3a6b" stroke="#c8102e" stroke-width="2"/>
+        <text x="25" y="20" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SCS</text>
+        <path d="M10 28 Q25 38 40 28" fill="none" stroke="#f5c518" stroke-width="2"/>
+        <text x="25" y="38" text-anchor="middle" fill="#f5c518" font-size="6">EST. 1990</text>
+      </svg>
+    </div>
+    <h2 class="login-title">School CMS</h2>
+    <p class="login-sub">Sulekh Convent Public School</p>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" id="loginUser" placeholder="Enter username" autocomplete="username"/>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password"/>
+    </div>
+    <div id="loginError" class="login-error" style="display:none;"></div>
+    <button class="btn-login" id="loginBtn" onclick="doLogin()">Login</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CMS SHELL (shown after login)
+══════════════════════════════════════════ -->
+<div class="cms-shell" id="cmsShell" style="display:none;">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span>📚 School CMS</span>
+      <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle sidebar">☰</button>
+    </div>
+
+    <div class="sidebar-user" id="sidebarUser"></div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">MAIN</div>
+      <a href="#" class="nav-item active" data-panel="dashboard">
+        <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
+      </a>
+
+      <div class="nav-section-label">HOMEPAGE</div>
+      <a href="#" class="nav-item" data-panel="slider">
+        <span class="nav-icon">🖼️</span><span class="nav-label">Hero Slider</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="news">
+        <span class="nav-icon">📢</span><span class="nav-label">News Ticker</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="quicklinks">
+        <span class="nav-icon">🔗</span><span class="nav-label">Quick Links</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="toppers">
+        <span class="nav-icon">🏆</span><span class="nav-label">Toppers</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="birthdays">
+        <span class="nav-icon">🎂</span><span class="nav-label">Birthdays</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="circulars">
+        <span class="nav-icon">📋</span><span class="nav-label">Circulars</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="departments">
+        <span class="nav-icon">🏫</span><span class="nav-label">Departments Preview</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="partners">
+        <span class="nav-icon">🤝</span><span class="nav-label">Partners / Logos</span>
+      </a>
+
+      <div class="nav-section-label">ABOUT SCHOOL</div>
+      <a href="#" class="nav-item" data-panel="about_content">
+        <span class="nav-icon">📝</span><span class="nav-label">About / Vision / Mission</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="trailblazers">
+        <span class="nav-icon">👥</span><span class="nav-label">Trail Blazers</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="values">
+        <span class="nav-icon">⭐</span><span class="nav-label">Values</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="policies">
+        <span class="nav-icon">📜</span><span class="nav-label">Policies</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="salient">
+        <span class="nav-icon">✨</span><span class="nav-label">Salient Features</span>
+      </a>
+
+      <div class="nav-section-label">ACADEMICS</div>
+      <a href="#" class="nav-item" data-panel="academics_content">
+        <span class="nav-icon">📚</span><span class="nav-label">Dept. Content</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="homework">
+        <span class="nav-icon">📓</span><span class="nav-label">Holiday Homework</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="syllabus">
+        <span class="nav-icon">📄</span><span class="nav-label">Syllabus</span>
+      </a>
+
+      <div class="nav-section-label">BEYOND ACADEMICS</div>
+      <a href="#" class="nav-item" data-panel="clubs">
+        <span class="nav-icon">🎭</span><span class="nav-label">Clubs</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="houses">
+        <span class="nav-icon">🏠</span><span class="nav-label">Houses</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="discipline">
+        <span class="nav-icon">📏</span><span class="nav-label">Discipline / Timings</span>
+      </a>
+
+      <div class="nav-section-label">INFRASTRUCTURE</div>
+      <a href="#" class="nav-item" data-panel="infra">
+        <span class="nav-icon">🏗️</span><span class="nav-label">Infrastructure</span>
+      </a>
+
+      <div class="nav-section-label">ADMISSION</div>
+      <a href="#" class="nav-item" data-panel="fee">
+        <span class="nav-icon">💰</span><span class="nav-label">Fee Structure</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="admission_docs">
+        <span class="nav-icon">📎</span><span class="nav-label">Admission Docs</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="enquiries">
+        <span class="nav-icon">📩</span><span class="nav-label">Enquiries</span>
+      </a>
+
+      <div class="nav-section-label">GALLERY</div>
+      <a href="#" class="nav-item" data-panel="gallery_images">
+        <span class="nav-icon">🖼️</span><span class="nav-label">Image Gallery</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="gallery_videos">
+        <span class="nav-icon">🎬</span><span class="nav-label">Video Gallery</span>
+      </a>
+
+      <div class="nav-section-label">CAREER</div>
+      <a href="#" class="nav-item" data-panel="career">
+        <span class="nav-icon">🎯</span><span class="nav-label">Career Cards</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="career_resources">
+        <span class="nav-icon">📥</span><span class="nav-label">Career Resources</span>
+      </a>
+
+      <div class="nav-section-label">ADMIN</div>
+      <a href="#" class="nav-item" data-panel="settings">
+        <span class="nav-icon">⚙️</span><span class="nav-label">Settings</span>
+      </a>
+      <a href="#" class="nav-item" data-panel="users">
+        <span class="nav-icon">👤</span><span class="nav-label">Users</span>
+      </a>
+      <a href="#" class="nav-item" onclick="doLogout()">
+        <span class="nav-icon">🚪</span><span class="nav-label">Logout</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <div class="cms-main" id="cmsMain">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="topbar-menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-title" id="topbarTitle">Dashboard</div>
+      <div class="topbar-actions">
+        <a href="../index.html" target="_blank" class="btn-sm btn-outline-sm">🌐 View Website</a>
+      </div>
+    </header>
+
+    <!-- PANEL AREA -->
+    <div class="panel-area" id="panelArea">
+
+      <!-- LOADING -->
+      <div class="panel-loading" id="panelLoading" style="display:none;">
+        <div class="spinner"></div><p>Loading...</p>
+      </div>
+
+      <!-- TOAST -->
+      <div class="toast" id="toast"></div>
+
+      <!-- ── DASHBOARD ── -->
+      <div class="panel active" id="panel-dashboard">
+        <div class="panel-header">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="dash-stats" id="dashStats">
+          <div class="stat-card"><div class="stat-num" id="dStat1">—</div><div class="stat-lbl">Enquiries</div></div>
+          <div class="stat-card"><div class="stat-num" id="dStat2">—</div><div class="stat-lbl">Gallery Albums</div></div>
+          <div class="stat-card"><div class="stat-num" id="dStat3">—</div><div class="stat-lbl">Videos</div></div>
+          <div class="stat-card"><div class="stat-num" id="dStat4">—</div><div class="stat-lbl">News Items</div></div>
+        </div>
+        <div class="dash-welcome">
+          <h3>Welcome to the CMS! 👋</h3>
+          <p>Use the sidebar to manage all content of Sulekh Convent Public School website. All changes reflect on the website immediately.</p>
+          <ul>
+            <li>✅ Edit homepage slider, news, toppers, circulars</li>
+            <li>✅ Update About School, Vision, Mission, Values</li>
+            <li>✅ Manage Gallery — Images &amp; Videos</li>
+            <li>✅ Handle Admission enquiries</li>
+            <li>✅ Update Fee Structure, Homework, Syllabus</li>
+            <li>✅ Manage CMS users</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ── GENERIC LIST PANEL (reused for all list-based sections) ── -->
+      <div class="panel" id="panel-list">
+        <div class="panel-header">
+          <h2 id="listPanelTitle">Items</h2>
+          <button class="btn-primary-sm" onclick="openModal('add')">+ Add New</button>
+        </div>
+        <div class="panel-toolbar">
+          <input type="text" id="listSearch" placeholder="🔍 Search..." oninput="filterList()" class="search-input"/>
+        </div>
+        <div class="table-wrap">
+          <table class="cms-table" id="listTable">
+            <thead id="listThead"></thead>
+            <tbody id="listTbody"></tbody>
+          </table>
+          <div class="empty-state" id="listEmpty" style="display:none;">No records found.</div>
+        </div>
+      </div>
+
+      <!-- ── CONTENT EDITOR PANEL (for text content blocks) ── -->
+      <div class="panel" id="panel-content-editor">
+        <div class="panel-header">
+          <h2 id="contentEditorTitle">Edit Content</h2>
+          <button class="btn-primary-sm" onclick="saveAllContent()">💾 Save All</button>
+        </div>
+        <div id="contentEditorFields"></div>
+      </div>
+
+      <!-- ── SETTINGS PANEL ── -->
+      <div class="panel" id="panel-settings">
+        <div class="panel-header">
+          <h2>School Settings</h2>
+          <button class="btn-primary-sm" onclick="saveAllSettings()">💾 Save All</button>
+        </div>
+        <div class="settings-grid" id="settingsGrid"></div>
+      </div>
+
+      <!-- ── USERS PANEL ── -->
+      <div class="panel" id="panel-users">
+        <div class="panel-header">
+          <h2>CMS Users</h2>
+          <button class="btn-primary-sm" onclick="openUserModal()">+ Add User</button>
+        </div>
+        <div class="table-wrap">
+          <table class="cms-table" id="usersTable">
+            <thead>
+              <tr><th>Sr</th><th>Name</th><th>Email</th><th>Username</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="usersTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /panel-area -->
+  </div><!-- /cms-main -->
+</div><!-- /cms-shell -->
+
+<!-- ══════════════════════════════════════════
+     UNIVERSAL MODAL
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add / Edit</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <button class="btn-outline-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary-sm" id="modalSaveBtn" onclick="saveModalRow()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     USER MODAL
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="userModalOverlay" onclick="closeUserModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Add CMS User</h3>
+      <button class="modal-close" onclick="closeUserModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Full Name *</label><input type="text" id="uName" placeholder="Full name"/></div>
+      <div class="form-group"><label>Email *</label><input type="email" id="uEmail" placeholder="Email address"/></div>
+      <div class="form-group"><label>Username *</label><input type="text" id="uUsername" placeholder="Username (no spaces)"/></div>
+      <div class="form-group"><label>Password *</label><input type="password" id="uPassword" placeholder="Strong password"/></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-outline-sm" onclick="closeUserModal()">Cancel</button>
+      <button class="btn-primary-sm" onclick="saveUser()">Add User</button>
+    </div>
+  </div>
+</div>
+
+<script src="../cms-config.js"></script>
+<script src="cms.js"></script>
+</body>
+</html>
