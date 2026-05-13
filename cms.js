@@ -1,4 +1,3 @@
-
 /* ============================================================
    CMS.JS v2.0 — All bugs fixed, image upload, date pickers,
    sidebar toggle, video thumbnails, circulars date range
@@ -1246,6 +1245,3 @@ function showToast(msg, type='success') {
 
 // ── Init sidebar state on page load ──
 window.addEventListener('load', restoreSidebarState);
-JSEOF
-echo "cms.js: $(wc -l < /home/claude/sulekh-school/cms/cms.js) lines"
-
