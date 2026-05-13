@@ -766,3 +766,99 @@ input, select, textarea, button { font-family: var(--font); }
   .dash-stats { grid-template-columns: 1fr 1fr; }
   .panel-header { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
+
+/* ══════════════════════════════════════════
+   DUAL UPLOAD (Image/File — Upload + URL)
+══════════════════════════════════════════ */
+.dual-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dual-tab-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.dual-tab {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-2);
+}
+
+.dual-tab.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.dual-pane input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--bg);
+  transition: var(--transition);
+}
+
+.dual-pane input[type="file"]:hover {
+  border-color: var(--blue-mid);
+  background: #e8f0ff;
+}
+
+.upload-progress {
+  padding: 8px 12px;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  animation: pulse 1s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+/* ── Multi image thumbnails ── */
+.multi-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ── Video thumbnail preview ── */
+.img-preview {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-top: 8px;
+  display: none;
+}
+
+.img-preview.show { display: block; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE FIXES
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .dual-tab-btns { flex-direction: column; }
+  .modal-body    { padding: 14px; }
+  .modal-footer  { padding: 10px 14px; }
+  .action-btns   { flex-direction: column; }
+  .btn-icon      { width: 100%; justify-content: center; }
+}
