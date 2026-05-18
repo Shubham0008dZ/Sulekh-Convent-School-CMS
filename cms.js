@@ -1,7 +1,3 @@
-/* ============================================================
-   CMS.JS v3.0 — Complete rewrite, all bugs fixed
-   ============================================================ */
-
 // ── State ─────────────────────────────────────────────────────
 const STATE = {
   panel  : 'dashboard',
@@ -1106,3 +1102,6 @@ function toast(msg,type='success'){
   t.textContent=msg; t.className=`toast ${type} show`;
   clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),3500);
 }
+ENDOFFILE
+echo "cms.js written: $(wc -l < /home/claude/sulekh-school/cms/cms.js) lines"
+
