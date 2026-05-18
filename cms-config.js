@@ -4,6 +4,30 @@
 //
 //  ⚠️  ONLY THIS FILE needs to be updated when API URL changes
 //  Include this file in ALL html pages before any other script
+// ============================================================// ============================================================
+//  cms-config.js
+//  Sulekh Convent Public School
+//
+//  ⚠️  ONLY THIS FILE needs to be updated when API URL changes
+//  Include this file in ALL html pages before any other script
+// ============================================================// ============================================================
+//  cms-config.js
+//  Sulekh Convent Public School
+//
+//  ⚠️  ONLY THIS FILE needs to be updated when API URL changes
+//  Include this file in ALL html pages before any other script
+// ============================================================// ============================================================
+//  cms-config.js
+//  Sulekh Convent Public School
+//
+//  ⚠️  ONLY THIS FILE needs to be updated when API URL changes
+//  Include this file in ALL html pages before any other script
+// ============================================================// ============================================================
+//  cms-config.js
+//  Sulekh Convent Public School
+//
+//  ⚠️  ONLY THIS FILE needs to be updated when API URL changes
+//  Include this file in ALL html pages before any other script
 // ============================================================
 
 const CMS_CONFIG = {
